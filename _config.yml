@@ -1,10 +1,10 @@
 title: "ArchiPortfolio"
 email: contacto@arquitecto.com
 description: "Portfolio de arquitectura minimalista y profesional."
-baseurl: "" # Dejar vacío para dominio raíz o '/nombre-repo' para subruta en GitHub Pages
-url: "https://usuario.github.io" # Tu URL de GitHub Pages
-twitter_username: arquitecto
-github_username: arquitecto
+baseurl: "/portfolioArquitectura" # Dejar vacío para dominio raíz o '/nombre-repo' para subruta en GitHub Pages
+url: "https://ElCyberCurioso.github.io" # Tu URL de GitHub Pages
+twitter_username: ElCyberCurioso
+github_username: ElCyberCurioso
 
 # Build settings
 markdown: kramdown
