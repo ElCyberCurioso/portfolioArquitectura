@@ -1,0 +1,238 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #000000;
+  --secondary-color: #777777;
+  --link-color: #000000;
+  --border-color: #e5e5e5;
+  
+  --font-primary: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  
+  --spacing-unit: 30px;
+  --container-width: 1200px;
+}
+
+/* Reset & Base */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  margin-top: 0;
+  color: var(--accent-color);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+a:hover { opacity: 0.7; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Layout */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-unit);
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border-color);
+  padding: calc(var(--spacing-unit) * 1.5) 0;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.site-nav .page-link {
+  margin-left: var(--spacing-unit);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Navigation Trigger (Mobile) */
+.nav-trigger { display: none; }
+.menu-icon { display: none; cursor: pointer; }
+
+/* Main Content */
+.page-content {
+  padding: calc(var(--spacing-unit) * 3) 0;
+  min-height: 80vh;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: calc(var(--spacing-unit) * 2) 0;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+}
+.footer-col-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.social-media-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+/* Project Layout */
+.project-header {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  text-align: center;
+}
+.project-title { font-size: 3rem; margin-bottom: 10px; }
+.project-meta {
+  color: var(--secondary-color);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.project-3d-model {
+  margin: 40px 0;
+  border: 1px solid var(--border-color);
+}
+.caption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  margin-top: 10px;
+}
+
+/* Project Grid (for index/projects page) */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: calc(var(--spacing-unit) * 2);
+}
+.project-card {
+  display: block;
+}
+.project-card-image {
+  aspect-ratio: 4/3;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative; /* Needed for absolute positioning of sprite */
+}
+
+/* Static Image Styles */
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s ease, transform 0.5s ease;
+  display: block;
+}
+
+/* Hover Zoom Effect (only for non-sprite images) */
+.project-card:hover .project-card-image img:not(.static-preview) {
+  transform: scale(1.05);
+}
+
+/* Sprite Sheet Animation Styles */
+.sprite-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover; /* Fallback */
+  background-size: calc(100% * var(--frames)) 100%; /* Width is 100% * frames */
+  background-position: 0 0;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.2s ease;
+  pointer-events: none; /* Let clicks pass through */
+}
+
+/* On Hover: Hide static image, show sprite */
+.project-card:hover .static-preview {
+  opacity: 0;
+}
+.project-card:hover .sprite-wrapper {
+  opacity: 1;
+  /* Animation controlled via JS */
+}
+
+.project-card-title {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.project-card-meta {
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-header .container { flex-wrap: wrap; }
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-color);
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    display: none;
+    padding: 20px;
+    text-align: center;
+  }
+  .site-nav .page-link {
+    display: block;
+    margin: 15px 0;
+  }
+  .menu-icon { display: block; }
+  .nav-trigger:checked ~ .trigger .site-nav { display: block; } /* Simple CSS toggle logic needs refined structure, using JS or cleaner CSS hack */
+  
+  /* CSS-only menu toggle correction */
+  .trigger { display: none; width: 100%; }
+  .nav-trigger:checked ~ .trigger { display: block; }
+  
+  .project-title { font-size: 2rem; }
+  .footer-col-wrapper { flex-direction: column; text-align: center; gap: 20px; }
+  .social-media-list { justify-content: center; }
+}
+
+/* Hero Section */
+.hero {
+  padding: 100px 0;
+  text-align: center;
+}
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  font-weight: 300;
+}

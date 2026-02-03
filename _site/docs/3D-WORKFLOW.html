@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de Flujo de Trabajo 3D para Web - ArchiPortfolio</title>
+<meta name="description" content="Portfolio de arquitectura minimalista y profesional.">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/sketchfab.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<!-- Model Viewer -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Guía de Flujo de Trabajo 3D para Web | ArchiPortfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Guía de Flujo de Trabajo 3D para Web" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Portfolio de arquitectura minimalista y profesional." />
+<meta property="og:description" content="Portfolio de arquitectura minimalista y profesional." />
+<link rel="canonical" href="http://localhost:4000/docs/3D-WORKFLOW.html" />
+<meta property="og:url" content="http://localhost:4000/docs/3D-WORKFLOW.html" />
+<meta property="og:site_name" content="ArchiPortfolio" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Guía de Flujo de Trabajo 3D para Web" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Portfolio de arquitectura minimalista y profesional.","headline":"Guía de Flujo de Trabajo 3D para Web","url":"http://localhost:4000/docs/3D-WORKFLOW.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-title">ArchiPortfolio</a>
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+      <div class="trigger">
+        <a class="page-link" href="/projects/">Projects</a>
+        <a class="page-link" href="/about/">About</a>
+        <a class="page-link" href="/experience/">Experience</a>
+        <a class="page-link" href="/contact/">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Guía de Flujo de Trabajo 3D para Web</h1>
+  </header>
+
+  <div class="post-content">
+    <h1 id="guía-de-flujo-de-trabajo-3d-para-web">Guía de Flujo de Trabajo 3D para Web</h1>
+
+<p>Para mostrar tus modelos de arquitectura en la web, es fundamental entender que los navegadores no pueden leer directamente archivos de trabajo nativos como <code class="language-plaintext highlighter-rouge">.blend</code>, <code class="language-plaintext highlighter-rouge">.rvt</code> (Revit) o <code class="language-plaintext highlighter-rouge">.skp</code> (SketchUp).</p>
+
+<p>Incluso formatos de intercambio antiguos como <code class="language-plaintext highlighter-rouge">.obj</code> o <code class="language-plaintext highlighter-rouge">.fbx</code> no están optimizados para web (son pesados, requieren múltiples archivos para texturas, y no tienen estándar de iluminación consistente).</p>
+
+<h2 id="-la-solución-glb-gltf-binary">🏆 La Solución: GLB (glTF Binary)</h2>
+<p>El formato estándar para 3D en la web hoy en día es <strong>glTF/GLB</strong>. Es como el “JPG del 3D”.</p>
+<ul>
+  <li>✅ Un solo archivo (incluye texturas y geometría).</li>
+  <li>✅ Muy ligero y rápido de cargar.</li>
+  <li>✅ Soporta PBR (materiales físicamente realistas).</li>
+</ul>
+
+<h3 id="cómo-exportar-a-glb-desde-tus-herramientas">Cómo exportar a GLB desde tus herramientas</h3>
+
+<h4 id="1-desde-blender-recomendado">1. Desde Blender (Recomendado)</h4>
+<p>Blender es gratuito y es el mejor conversor.</p>
+<ol>
+  <li>Abre o importa tu modelo (<code class="language-plaintext highlighter-rouge">.fbx</code>, <code class="language-plaintext highlighter-rouge">.obj</code>, <code class="language-plaintext highlighter-rouge">.dae</code>, etc.) en Blender.</li>
+  <li>Ve a <strong>File &gt; Export &gt; glTF 2.0 (.glb/.gltf)</strong>.</li>
+  <li>En las opciones de exportación (derecha):
+    <ul>
+      <li><strong>Format</strong>: <code class="language-plaintext highlighter-rouge">glTF Binary (.glb)</code></li>
+      <li><strong>Includes</strong>: Marca <code class="language-plaintext highlighter-rouge">Selected Objects</code> si solo quieres exportar lo seleccionado.</li>
+      <li><strong>Geometry</strong>: Marca <code class="language-plaintext highlighter-rouge">Apply Modifiers</code> si tienes modificadores sin aplicar.</li>
+      <li><strong>Materials</strong>: Asegúrate de que está activo.</li>
+    </ul>
+  </li>
+  <li>Guarda el archivo y úsalo en tu web con <code class="language-plaintext highlighter-rouge">model_3d: "/ruta/al/archivo.glb"</code>.</li>
+</ol>
+
+<h4 id="2-desde-rhino">2. Desde Rhino</h4>
+<p>Rhino 7+ tiene exportación nativa.</p>
+<ol>
+  <li>Selecciona tu modelo.</li>
+  <li><strong>File &gt; Export Selected</strong>.</li>
+  <li>Elige formato <strong>glTF (.glb)</strong>.</li>
+  <li><em>Nota</em>: A veces las texturas complejas de Rhino no pasan bien. Se recomienda pasar por Blender para “cocinar” (bake) las texturas si es necesario.</li>
+</ol>
+
+<h4 id="3-desde-revit">3. Desde Revit</h4>
+<p>No hay exportador nativo directo a GLB de alta calidad.</p>
+<ul>
+  <li><strong>Opción A</strong>: Usar un plugin como “SimLab glTF Exporter”.</li>
+  <li><strong>Opción B</strong>: Exportar a FBX -&gt; Importar en Blender -&gt; Exportar a GLB.</li>
+</ul>
+
+<hr />
+
+<h2 id="️-alternativa-sketchfab-para-blend-fbx-obj-directos">☁️ Alternativa: Sketchfab (Para .blend, .fbx, .obj directos)</h2>
+<p>Si no quieres convertir tus modelos o son demasiado complejos/pesados para cargarlos directamente en el navegador del usuario:</p>
+
+<ol>
+  <li>Crea una cuenta en <a href="https://sketchfab.com/">Sketchfab.com</a>.</li>
+  <li>Sube tu archivo <code class="language-plaintext highlighter-rouge">.blend</code>, <code class="language-plaintext highlighter-rouge">.fbx</code>, <code class="language-plaintext highlighter-rouge">.obj</code>, <code class="language-plaintext highlighter-rouge">.skp</code> directamente. Sketchfab lo procesará automáticamente.</li>
+  <li>Copia el ID del modelo de la URL (ej: <code class="language-plaintext highlighter-rouge">https://sketchfab.com/models/aaaa1111bbbb2222</code>).</li>
+  <li>En tu archivo de proyecto (<code class="language-plaintext highlighter-rouge">.md</code>), usa:
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">sketchfab_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">aaaa1111bbbb2222"</span>
+</code></pre></div>    </div>
+    <p>Esto mostrará el visor de Sketchfab en lugar del visor nativo.</p>
+  </li>
+</ol>
+
+<h2 id="resumen">Resumen</h2>
+<p>| Formato | Soporte Web Nativo | Recomendación |
+| :— | :— | :— |
+| <strong>.glb / .gltf</strong> | ⭐⭐⭐⭐⭐ (Nativo) | <strong>La mejor opción.</strong> Rápido, gratis, sin logos externos. |
+| <strong>.obj</strong> | ⭐⭐ (Posible pero complejo) | Convertir a GLB usando Blender. |
+| <strong>.fbx</strong> | ⭐ (Malo) | Convertir a GLB usando Blender. |
+| <strong>.blend</strong> | ❌ (Imposible) | Exportar a GLB o subir a Sketchfab. |
+| <strong>.rvt / .skp</strong> | ❌ (Imposible) | Exportar a FBX -&gt; Convertir a GLB. |</p>
+
+  </div>
+
+</article>
+
+    </div>
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p>&copy; 2026 ArchiPortfolio. All rights reserved.</p>
+      </div>
+      <div class="footer-col">
+        <ul class="social-media-list">
+          <li><a href="https://github.com/arquitecto">GitHub</a></li>
+          <li><a href="https://twitter.com/arquitecto">Twitter</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

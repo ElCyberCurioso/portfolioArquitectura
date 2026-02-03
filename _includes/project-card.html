@@ -1,0 +1,16 @@
+<a href="{{ include.project.url | relative_url }}" class="project-card">
+  <div class="project-card-image">
+    {% if include.project.preview_spritesheet %}
+      <!-- Sprite Sheet Animation -->
+      <div class="sprite-wrapper" style="--frames: {{ include.project.preview_frames | default: 15 }}; background-image: url('{{ include.project.preview_spritesheet }}');">
+      </div>
+      <!-- Fallback static image (first frame or separate image) -->
+      <img src="{{ include.project.image | default: include.project.preview_spritesheet }}" alt="{{ include.project.title }}" class="static-preview">
+    {% else %}
+      <!-- Standard Static Image -->
+      <img src="{{ include.project.image | default: 'https://via.placeholder.com/600x450/eeeeee/999999?text=No+Image' }}" alt="{{ include.project.title }}">
+    {% endif %}
+  </div>
+  <h3 class="project-card-title">{{ include.project.title }}</h3>
+  <p class="project-card-meta">{{ include.project.year }} — {{ include.project.type }}</p>
+</a>

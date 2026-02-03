@@ -1,0 +1,30 @@
+title: "ArchiPortfolio"
+email: contacto@arquitecto.com
+description: "Portfolio de arquitectura minimalista y profesional."
+baseurl: "" # Dejar vacío para dominio raíz o '/nombre-repo' para subruta en GitHub Pages
+url: "https://usuario.github.io" # Tu URL de GitHub Pages
+twitter_username: arquitecto
+github_username: arquitecto
+
+# Build settings
+markdown: kramdown
+theme: minima # Usaremos estilos propios, pero esto evita errores si no se define
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
