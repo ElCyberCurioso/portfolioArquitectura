@@ -1,11 +1,12 @@
 <a href="{{ include.project.url | relative_url }}" class="project-card">
   <div class="project-card-image">
     {% if include.project.preview_spritesheet %}
-      <!-- Sprite Sheet Animation -->
-      <div class="sprite-wrapper" style="--frames: {{ include.project.preview_frames | default: 15 }}; background-image: url('{{ include.project.preview_spritesheet }}');">
+      <!-- Sprite Sheet Animation (used for both static and hover states) -->
+      <div class="sprite-wrapper" 
+           style="--frames: {{ include.project.preview_frames | default: 15 }}; background-image: url('{{ include.project.preview_spritesheet }}');"
+           role="img" 
+           aria-label="{{ include.project.title }}">
       </div>
-      <!-- Fallback static image (first frame or separate image) -->
-      <img src="{{ include.project.image | default: include.project.preview_spritesheet }}" alt="{{ include.project.title }}" class="static-preview">
     {% else %}
       <!-- Standard Static Image -->
       <img src="{{ include.project.image | default: 'https://via.placeholder.com/600x450/eeeeee/999999?text=No+Image' }}" alt="{{ include.project.title }}">

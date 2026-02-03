@@ -12,7 +12,11 @@ layout: default
   </header>
 
   <div class="project-content">
-    {% if page.sketchfab_id %}
+    {% if page.sketchfab_embed %}
+    <div class="project-3d-model">
+      {{ page.sketchfab_embed }}
+    </div>
+    {% elsif page.sketchfab_id %}
     <div class="project-3d-model">
       <div class="sketchfab-embed-wrapper">
         <iframe title="Sketchfab Model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/{{ page.sketchfab_id }}/embed?autostart=0&ui_theme=dark"> 

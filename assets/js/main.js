@@ -46,11 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
       spriteWrapper.style.backgroundPosition = `${positionPercentage}% 0`;
     });
 
-    // Optional: Reset to first frame when mouse leaves?
-    // Usually it's better to leave it where it was or reset to 0.
-    // Given the CSS opacity transition, resetting to 0 might look smoother for next entry.
+    // Reset to first frame (0% 0) when mouse leaves
     card.addEventListener('mouseleave', () => {
-       // spriteWrapper.style.backgroundPosition = '0% 0';
+       spriteWrapper.style.backgroundPosition = '0% 0';
     });
   });
 });

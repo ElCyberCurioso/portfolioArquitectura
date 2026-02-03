@@ -156,6 +156,11 @@ img { max-width: 100%; height: auto; display: block; }
   display: block;
 }
 
+/* Ensure static preview of sprite sheets starts at the first frame */
+.static-preview {
+  object-position: left center;
+}
+
 /* Hover Zoom Effect (only for non-sprite images) */
 .project-card:hover .project-card-image img:not(.static-preview) {
   transform: scale(1.05);
@@ -171,7 +176,7 @@ img { max-width: 100%; height: auto; display: block; }
   background-size: cover; /* Fallback */
   background-size: calc(100% * var(--frames)) 100%; /* Width is 100% * frames */
   background-position: 0 0;
-  opacity: 0; /* Hidden by default */
+  opacity: 1; /* Always visible to serve as static preview too */
   transition: opacity 0.2s ease;
   pointer-events: none; /* Let clicks pass through */
 }
@@ -180,10 +185,7 @@ img { max-width: 100%; height: auto; display: block; }
 .project-card:hover .static-preview {
   opacity: 0;
 }
-.project-card:hover .sprite-wrapper {
-  opacity: 1;
-  /* Animation controlled via JS */
-}
+/* Removed hover opacity rule for sprite-wrapper since it's always visible now */
 
 .project-card-title {
   font-size: 1.2rem;
@@ -238,3 +240,64 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--secondary-color);
   font-weight: 300;
 }
+
+/* Experience Section */
+.experience-item { margin-bottom: 30px; }
+.experience-item h3 { margin-bottom: 5px; }
+.experience-meta { color: var(--secondary-color); margin-bottom: 10px; }
+.experience-list { list-style-type: disc; padding-left: 20px; }
+.education-item { margin-bottom: 20px; }
+
+/* Tags */
+.tags-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.tag {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 5px 15px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+/* Contact Section */
+.contact-container { max-width: 600px; margin: 0 auto; }
+.contact-intro { text-align: center; color: var(--secondary-color); margin-bottom: 40px; }
+.contact-email { margin-bottom: 40px; text-align: center; }
+.contact-email a { font-size: 1.5rem; text-decoration: underline; }
+
+/* Forms */
+.contact-form {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--accent-color); }
+.form-control {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  font-family: var(--font-primary);
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--link-color);
+}
+.btn-submit {
+  background-color: var(--accent-color);
+  color: var(--bg-color); /* Inverted for contrast */
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  width: 100%;
+  transition: opacity 0.2s ease;
+}
+.btn-submit:hover { opacity: 0.9; }
+.form-note { font-size: 0.8rem; color: var(--secondary-color); margin-top: 10px; text-align: center; }

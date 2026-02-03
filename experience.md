@@ -3,54 +3,54 @@ layout: default
 title: Experience
 ---
 
-<div style="max-width: 800px; margin: 0 auto;">
+<div class="container" style="max-width: 800px;">
   <h1 style="margin-bottom: 40px;">Experience & CV</h1>
 
-  <section style="margin-bottom: 50px;">
+  <section class="experience-section">
     <h2>Experiencia Laboral</h2>
     
-    <div style="margin-bottom: 30px;">
-      <h3 style="margin-bottom: 5px;">Senior Architect</h3>
-      <p style="color: #777; margin-bottom: 10px;">Estudio Arquitectura Global · Madrid · 2020 - Presente</p>
-      <ul style="list-style-type: disc; padding-left: 20px;">
+    <div class="experience-item">
+      <h3>Senior Architect</h3>
+      <p class="experience-meta">Estudio Arquitectura Global · Madrid · 2020 - Presente</p>
+      <ul class="experience-list">
         <li>Liderazgo de equipos de diseño para concursos internacionales.</li>
         <li>Coordinación BIM y supervisión de obra en proyectos residenciales de gran escala.</li>
         <li>Implementación de nuevas tecnologías de visualización VR/AR.</li>
       </ul>
     </div>
 
-    <div style="margin-bottom: 30px;">
-      <h3 style="margin-bottom: 5px;">Junior Architect</h3>
-      <p style="color: #777; margin-bottom: 10px;">Design Lab · Londres · 2017 - 2020</p>
-      <ul style="list-style-type: disc; padding-left: 20px;">
+    <div class="experience-item">
+      <h3>Junior Architect</h3>
+      <p class="experience-meta">Design Lab · Londres · 2017 - 2020</p>
+      <ul class="experience-list">
         <li>Desarrollo de documentación técnica y detalles constructivos.</li>
         <li>Modelado 3D y postproducción de imágenes para presentaciones a clientes.</li>
       </ul>
     </div>
   </section>
 
-  <section style="margin-bottom: 50px;">
+  <section class="experience-section">
     <h2>Educación</h2>
-    <div style="margin-bottom: 20px;">
-      <h3 style="margin-bottom: 5px;">Máster en Arquitectura Avanzada</h3>
-      <p style="color: #777;">Universidad Politécnica · 2016 - 2017</p>
+    <div class="education-item">
+      <h3>Máster en Arquitectura Avanzada</h3>
+      <p class="experience-meta">Universidad Politécnica · 2016 - 2017</p>
     </div>
-    <div style="margin-bottom: 20px;">
-      <h3 style="margin-bottom: 5px;">Grado en Fundamentos de la Arquitectura</h3>
-      <p style="color: #777;">Universidad de Sevilla · 2011 - 2016</p>
+    <div class="education-item">
+      <h3>Grado en Fundamentos de la Arquitectura</h3>
+      <p class="experience-meta">Universidad de Sevilla · 2011 - 2016</p>
     </div>
   </section>
 
-  <section>
+  <section class="experience-section">
     <h2>Software & Herramientas</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
-      <span style="background: #f5f5f5; padding: 5px 15px; border-radius: 4px;">AutoCAD</span>
-      <span style="background: #f5f5f5; padding: 5px 15px; border-radius: 4px;">Revit (BIM)</span>
-      <span style="background: #f5f5f5; padding: 5px 15px; border-radius: 4px;">Rhinoceros 3D</span>
-      <span style="background: #f5f5f5; padding: 5px 15px; border-radius: 4px;">Grasshopper</span>
-      <span style="background: #f5f5f5; padding: 5px 15px; border-radius: 4px;">V-Ray</span>
-      <span style="background: #f5f5f5; padding: 5px 15px; border-radius: 4px;">Adobe Creative Suite</span>
-      <span style="background: #f5f5f5; padding: 5px 15px; border-radius: 4px;">SketchUp</span>
+    <div class="tags-container">
+      <span class="tag">AutoCAD</span>
+      <span class="tag">Revit (BIM)</span>
+      <span class="tag">Rhinoceros 3D</span>
+      <span class="tag">Grasshopper</span>
+      <span class="tag">V-Ray</span>
+      <span class="tag">Adobe Creative Suite</span>
+      <span class="tag">SketchUp</span>
     </div>
   </section>
 </div>
